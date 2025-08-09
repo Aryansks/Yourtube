@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo — Acme Coffee (Mock)</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#ffb86b; --muted:#9aa6b2;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%; margin:0; background:linear-gradient(180deg,#071021 0%,#0f1724 100%); color:#e6eef6}
+    .wrap{min-height:100%; display:flex; align-items:center; justify-content:center; padding:32px}
+    .card{
+      width:100%; max-width:920px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04); border-radius:12px; padding:28px; box-shadow:0 8px 30px rgba(2,6,23,0.6);
+      display:grid; grid-template-columns:1fr 320px; gap:24px;
+    }
+    @media (max-width:820px){ .card{grid-template-columns:1fr; } }
+    h1{margin:0 0 6px; font-size:28px; letter-spacing:-0.4px}
+    p.lead{margin:0 0 18px; color:var(--muted)}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{background:var(--accent); color:#06101a; padding:12px 16px; border-radius:10px; font-weight:600; text-decoration:none; display:inline-block}
+    .ghost{border:1px solid rgba(255,255,255,0.08); padding:11px 14px; border-radius:10px; color:var(--muted); text-decoration:none}
+    .features{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    .feature{background:rgba(255,255,255,0.02); padding:10px 12px; border-radius:8px; color:var(--muted); font-size:13px}
+    .right{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); padding:18px; border-radius:10px; display:flex; flex-direction:column; gap:12px; align-items:stretch}
+    .mock-phone{height:220px; border-radius:12px; background:linear-gradient(180deg,#07162a,#0b2135); border:1px solid rgba(255,255,255,0.03); padding:18px; color:var(--muted); display:flex; flex-direction:column; justify-content:center; align-items:center}
+    .muted{color:var(--muted)}
+    footer{margin-top:18px; font-size:13px; color:var(--muted)}
+    .tag{display:inline-block; padding:6px 8px; border-radius:999px; font-size:12px; background:rgba(255,255,255,0.02); color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="region" aria-label="Demo landing card">
+      <main>
+        <span class="tag">Demo / Mock</span>
+        <h1>Acme Coffee — Tasting Lab (Demo)</h1>
+        <p class="lead">This is a mock landing page created for demo and testing purposes only. No real purchases or personal data are collected here.</p>
+
+        <div class="cta">
+          <a class="btn" href="#" id="notifyBtn">Get notified (demo)</a>
+          <a class="ghost" href="#" id="learnBtn">See mock menu</a>
+        </div>
+
+        <div class="features" aria-hidden="false">
+          <div class="feature">Mock sign-up flow</div>
+          <div class="feature">Placeholder menu</div>
+          <div class="feature">No external requests</div>
+        </div>
+
+        <footer>
+          <small class="muted">Created: Demo — Not a real business. Use for testing, wireframes, or presentations.</small>
+        </footer>
+      </main>
+
+      <aside class="right" aria-label="Preview">
+        <div class="mock-phone" id="preview">
+          <div style="font-weight:700; font-size:18px">Acme Brew</div>
+          <div class="muted" style="font-size:13px; margin-top:6px">Cappuccino • Mocha • House Blend</div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; gap:12px;">
+          <div style="flex:1">
+            <div style="font-size:13px; color:var(--muted)">Demo visitors</div>
+            <div style="font-weight:700">1,234</div>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:13px; color:var(--muted)">Status</div>
+            <div style="font-weight:700" id="status">Demo</div>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    // small demo interactions
+    document.getElementById('notifyBtn').addEventListener('click', function(e){
+      e.preventDefault();
+      alert('This is a demo "notify" action. No emails collected.');
+    });
+    document.getElementById('learnBtn').addEventListener('click', function(e){
+      e.preventDefault();
+      const p = document.getElementById('preview');
+      p.innerHTML = '<div style="font-weight:700; font-size:16px">Sample Menu (Demo)</div>'
+        +'<div style="margin-top:8px;color:#9aa6b2;font-size:13px">• House Blend — ₹99<br>• Cold Brew — ₹149<br>• Choco Latte — ₹129</div>';
+    });
+  </script>
+</body>
+</html>
